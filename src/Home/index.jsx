@@ -84,6 +84,7 @@ const Home = () => {
       if (response.ok) {
         setIsError(false);
         setErrorMsg(data.message);
+        alert('Send Email Successfully')
       } else {
         setIsError(true);
         setErrorMsg(data.message);
