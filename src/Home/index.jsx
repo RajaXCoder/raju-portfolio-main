@@ -36,6 +36,8 @@ const Home = () => {
   const [tabsList, setTabsList] = useState(navigation);
   const [projectList, setProjectList] = useState([]);
   const [skillsList, setSkillsList] = useState([]);
+  const [certificates, setCertificates] = useState([]);
+
   const [isLoading, setIsLoading] = useState(false);
 
   const [name, setName] = useState("");
@@ -84,7 +86,7 @@ const Home = () => {
       if (response.ok) {
         setIsError(false);
         setErrorMsg(data.message);
-        alert('Send Email Successfully')
+        alert("Send Email Successfully");
       } else {
         setIsError(true);
         setErrorMsg(data.message);
@@ -103,19 +105,24 @@ const Home = () => {
     const apiCall = async () => {
       try {
         setIsLoading(true);
-        const [res1, res2] = await Promise.all([
+        const [res1, res2, res3] = await Promise.all([
           axios.get(
             "https://raju-portfolio-server.onrender.com/api/get-projects"
           ),
           axios.get(
             "https://raju-portfolio-server.onrender.com/api/get-skills"
           ),
+          axios.get(
+            "https://raju-portfolio-server.onrender.com/api/get-certificates"
+          ),
         ]);
-        console.log(res1);
-        if (res1.status === 200 && res2.status === 200) {
+        console.log("res 3 ", res3);
+        if (res1.status === 200 && res2.status === 200 && res3.status === 200) {
           setIsLoading(false);
           setProjectList(res1.data.projects);
           setSkillsList(res2.data.skills);
+          // console.log(res3.data.certificatez);
+          setCertificates(res3.data.certificatez);
         }
       } catch (e) {
         setIsLoading(true);
@@ -134,6 +141,8 @@ const Home = () => {
       )
     );
   };
+
+  console.log(certificates);
   return (
     <>
       {/* {Navbar container} */}
@@ -332,6 +341,14 @@ const Home = () => {
             ))}
           </ul>
         )}
+
+        {/*Certificates*/}
+
+        <h1 className="home-heading">Certificates</h1>
+
+        {isLoading ? <Loader/> : <ul>
+          {certificates.map(item => <div>{item.name}</div>)}
+        </ul>}
 
         {/* {contacts} */}
         <h1 id="Contacts" className="home-heading">
