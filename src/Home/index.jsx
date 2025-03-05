@@ -20,6 +20,7 @@ import Loader from "../Loader";
 import "./style.css"; // Move this to the top
 
 import Skill from "./style";
+import skills from "../../public/data";
 
 const navigation = [
   { name: "Profile", href: "#Profile", current: true },
@@ -31,6 +32,8 @@ const navigation = [
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
 };
+
+console.log(skills);
 
 const Home = () => {
   const [tabsList, setTabsList] = useState(navigation);
@@ -81,7 +84,7 @@ const Home = () => {
         options
       );
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
 
       if (response.ok) {
         setIsError(false);
@@ -116,7 +119,7 @@ const Home = () => {
             "https://raju-portfolio-server.onrender.com/api/get-certificates"
           ),
         ]);
-        console.log("res 3 ", res3);
+        // console.log("res 3 ", res3);
         if (res1.status === 200 && res2.status === 200 && res3.status === 200) {
           setIsLoading(false);
           setProjectList(res1.data.projects);
@@ -142,7 +145,7 @@ const Home = () => {
     );
   };
 
-  console.log(certificates);
+  // console.log(certificates);
   return (
     <>
       {/* {Navbar container} */}
@@ -328,15 +331,9 @@ const Home = () => {
             data-aos-duration="1000"
             className="skills-container"
           >
-            {skillsList.map((each) => (
-              <li key={each._id} className="skill-box">
-                <span className="title">{each.name}</span>
-
-                <div className="skill-bar">
-                  <Skill width={`${each.points}%`}>
-                    <span className="tooltip">{each.points}%</span>
-                  </Skill>
-                </div>
+            {skills.frontend.map((each, _id) => (
+              <li key={_id} className="skill-box">
+                <span className="title">{each}</span>
               </li>
             ))}
           </ul>
@@ -346,9 +343,31 @@ const Home = () => {
 
         <h1 className="home-heading">Certificates</h1>
 
-        {isLoading ? <Loader/> : <ul>
-          {certificates.map(item => <div>{item.name}</div>)}
-        </ul>}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <ul className="w-[90%] m-auto flex flex-row items-center flex-wrap ">
+            {certificates.map((item) => (
+              <li className="relative w-full sm:w-1/2 lg:w-1/4 lg:w-[23%] h-32 rounded-xl overflow-hidden flex flex-col p-6 group m-[1%]">
+                <div className="absolute inset-[1px] rounded-lg bg-gray-800 z-10"></div>
+                <div className="absolute w-80 h-80 bg-white opacity-0 group-hover:opacity-10 rounded-full blur-2xl transform -translate-x-1/2 -translate-y-1/2 z-0"></div>
+                <div className="absolute left-2 top-6 w-1 h-24 bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-500 transition-transform group-hover:translate-x-1 z-20"></div>
+                <h2 className="text-blue-400 text-base font-medium z-20 relative">
+                  {item.name}
+                </h2>
+                <p className="my-3 text-white text-xs font-medium z-20 relative">
+                  NxtWave
+                </p>
+                <a
+                  className="text-blue-400 text-xs z-20 relative hover:text-blue-600"
+                  href={item.url}
+                >
+                  Visit
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
 
         {/* {contacts} */}
         <h1 id="Contacts" className="home-heading">

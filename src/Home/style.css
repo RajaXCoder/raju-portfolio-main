@@ -30,7 +30,7 @@ html {
 
 .home-heading {
   font-size: 32px;
-  margin: 20px 0 8px 0;
+  margin: 20px 0 8px 20px;
   align-self: flex-start;
 }
 
@@ -497,7 +497,9 @@ html {
   z-index: 1;
   border: 0px solid cyan;
   overflow: hidden;
-  transition: all 0.5s ease-in-out 0.2s, z-index 0.5s ease-in-out 0.2s;
+  transition:
+    all 0.5s ease-in-out 0.2s,
+    z-index 0.5s ease-in-out 0.2s;
 }
 
 .contact-card .profile-pic img {
@@ -620,7 +622,9 @@ html {
   z-index: 3;
   border: 7px solid cyan;
   box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
-  transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
+  transition:
+    all 0.5s ease-in-out,
+    z-index 0.5s ease-in-out 0.1s;
 }
 
 .contact-card:hover .profile-pic:hover {
@@ -803,7 +807,8 @@ html {
   border: none;
   background: white;
   border-radius: 90px 5px 5px 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   transition: 0.2s ease-in-out;
   text-align: center;
@@ -825,7 +830,8 @@ html {
   justify-content: center;
   background: white;
   border-radius: 5px 90px 5px 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   transition: 0.2s ease-in-out;
   text-align: center;
@@ -847,7 +853,8 @@ html {
   align-items: center;
   justify-content: center;
   border-radius: 5px 5px 5px 90px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   transition: 0.2s ease-in-out;
   text-align: center;
@@ -869,7 +876,8 @@ html {
   justify-content: center;
   background: white;
   border-radius: 5px 5px 90px 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   transition: 0.2s ease-in-out;
   text-align: center;
