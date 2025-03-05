@@ -20,6 +20,7 @@ import Loader from "../Loader";
 import "./style.css"; // Move this to the top
 
 import Skill from "./style";
+import Skills from "../Skills";
 import skills from "../../public/data";
 
 const navigation = [
@@ -32,8 +33,6 @@ const navigation = [
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
 };
-
-console.log(skills);
 
 const Home = () => {
   const [tabsList, setTabsList] = useState(navigation);
@@ -123,8 +122,8 @@ const Home = () => {
         if (res1.status === 200 && res2.status === 200 && res3.status === 200) {
           setIsLoading(false);
           setProjectList(res1.data.projects);
-          setSkillsList(res2.data.skills);
-          // console.log(res3.data.certificatez);
+          setSkillsList(res2.data.skills[0]);
+          // console.log(res2.data.skills[0]);
           setCertificates(res3.data.certificatez);
         }
       } catch (e) {
@@ -145,7 +144,7 @@ const Home = () => {
     );
   };
 
-  // console.log(certificates);
+  // console.log(skillsList);
   return (
     <>
       {/* {Navbar container} */}
@@ -321,23 +320,7 @@ const Home = () => {
           Skills
         </h1>
 
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <ul
-            data-aos="fade-up"
-            data-aos-once="true"
-            data-aos-delay="500"
-            data-aos-duration="1000"
-            className="skills-container"
-          >
-            {skills.frontend.map((each, _id) => (
-              <li key={_id} className="skill-box">
-                <span className="title">{each}</span>
-              </li>
-            ))}
-          </ul>
-        )}
+        {isLoading ? <Loader /> : <Skills skills={skillsList} />}
 
         {/*Certificates*/}
 
@@ -346,9 +329,9 @@ const Home = () => {
         {isLoading ? (
           <Loader />
         ) : (
-          <ul className="w-[90%] m-auto flex flex-row items-center flex-wrap ">
+          <ul className="w-[90%] m-auto flex flex-row items-center flex-wrap">
             {certificates.map((item) => (
-              <li className="relative w-full sm:w-1/2 lg:w-1/4 lg:w-[23%] h-32 rounded-xl overflow-hidden flex flex-col p-6 group m-[1%]">
+              <li className="relative w-full sm:w-[48%] lg:w-[23%] h-32 rounded-xl overflow-hidden flex flex-col p-6 group m-[1%]">
                 <div className="absolute inset-[1px] rounded-lg bg-gray-800 z-10"></div>
                 <div className="absolute w-80 h-80 bg-white opacity-0 group-hover:opacity-10 rounded-full blur-2xl transform -translate-x-1/2 -translate-y-1/2 z-0"></div>
                 <div className="absolute left-2 top-6 w-1 h-24 bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-500 transition-transform group-hover:translate-x-1 z-20"></div>
