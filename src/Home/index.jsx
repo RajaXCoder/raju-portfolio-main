@@ -15,13 +15,13 @@ import {
 import { IoMailOutline } from "react-icons/io5";
 import { FaXTwitter, FaArrowDown } from "react-icons/fa6";
 
-import Loader from "../Loader";
+import Skills from "../components/Skills";
+import skills from "../../public/data";
+import ProfileView from "../components/ProfileView";
+import Loader from "../components/Loader";
+import Certificates from "../components/Certificates";
 
 import "./style.css"; // Move this to the top
-
-import Skill from "./style";
-import Skills from "../Skills";
-import skills from "../../public/data";
 
 const navigation = [
   { name: "Profile", href: "#Profile", current: true },
@@ -122,8 +122,17 @@ const Home = () => {
         if (res1.status === 200 && res2.status === 200 && res3.status === 200) {
           setIsLoading(false);
           setProjectList(res1.data.projects);
+
+          // const formattedSkills = Object.entries(res2.data.skills[0]).flatMap(
+          //   ([category, items]) =>
+          //     items.map((name) => ({
+          //       name,
+          //       category: category === "database" ? "db" : category, // Renaming 'database' to 'db'
+          //     })),
+          // );
+          // console.log(formattedSkills);
           setSkillsList(res2.data.skills[0]);
-          // console.log(res2.data.skills[0]);
+          console.log(res2.data.skills[0]);
           setCertificates(res3.data.certificatez);
         }
       } catch (e) {
@@ -233,44 +242,11 @@ const Home = () => {
       {/* {Home container} */}
 
       <div className="home-container bg-zinc-800 text-white">
-        <h1 className="home-heading cssanimation leFadeInLeft">Profile</h1>
+        <h1 id="Profile" className="home-heading cssanimation leFadeInLeft">
+          Profile
+        </h1>
 
-        <div className="e-card playing">
-          <div className="image"></div>
-
-          <div className="wave"></div>
-          <div className="wave"></div>
-          <div className="wave"></div>
-
-          <div className="infotop">
-            <img
-              src="https://i.postimg.cc/XYvhy0Zs/0b3c1610-03b4-4cda-b4f0-83ef6abea697.png"
-              alt="profile"
-              className="profile-image"
-            />
-            <div className="self-intro-container">
-              <img
-                src="https://i.postimg.cc/DycmNXPY/IMG-20241112-075823.png"
-                alt="profile"
-                className="mobile-view-profile"
-              />
-              <h1 className="fade-sequence">
-                Hello! <span className=" highlight-text">I’m Rajasekar</span>
-              </h1>
-
-              <p className="name">
-                a passionate{" "}
-                <span className="highlight-text">MERN stack developer</span>{" "}
-                focused on building efficient and user-friendly web
-                applications. I’m skilled in MongoDB, Express, React, and
-                Node.js, creating interactive and scalable solutions. With a
-                strong attention to detail, I’m committed to delivering clean,
-                maintainable code for every project.
-              </p>
-            </div>
-          </div>
-        </div>
-
+        <ProfileView />
         <h1 id="Project" className="home-heading">
           Projects
         </h1>
@@ -320,7 +296,7 @@ const Home = () => {
           Skills
         </h1>
 
-        {isLoading ? <Loader /> : <Skills skills={skillsList} />}
+        {isLoading ? <Loader /> : <Skills skills={skills} />}
 
         {/*Certificates*/}
 
@@ -331,23 +307,7 @@ const Home = () => {
         ) : (
           <ul className="w-[90%] m-auto flex flex-row items-center flex-wrap">
             {certificates.map((item) => (
-              <li className="relative w-full sm:w-[48%] lg:w-[23%] h-32 rounded-xl overflow-hidden flex flex-col p-6 group m-[1%]">
-                <div className="absolute inset-[1px] rounded-lg bg-gray-800 z-10"></div>
-                <div className="absolute w-80 h-80 bg-white opacity-0 group-hover:opacity-10 rounded-full blur-2xl transform -translate-x-1/2 -translate-y-1/2 z-0"></div>
-                <div className="absolute left-2 top-6 w-1 h-24 bg-gradient-to-b from-blue-400 via-indigo-500 to-purple-500 transition-transform group-hover:translate-x-1 z-20"></div>
-                <h2 className="text-blue-400 text-base font-medium z-20 relative">
-                  {item.name}
-                </h2>
-                <p className="my-3 text-white text-xs font-medium z-20 relative">
-                  NxtWave
-                </p>
-                <a
-                  className="text-blue-400 text-xs z-20 relative hover:text-blue-600"
-                  href={item.url}
-                >
-                  Visit
-                </a>
-              </li>
+              <Certificates certificate={item} key={item._id} />
             ))}
           </ul>
         )}
