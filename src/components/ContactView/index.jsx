@@ -113,14 +113,14 @@ const ContactView = () => {
       </div>
 
       {/*disktop view*/}
-      <div className="contact-disktop-container">
-        <div
-          className="disktop-social-container"
-          data-aos="fade-up"
-          data-aos-once="true"
-          data-aos-delay="500"
-          data-aos-duration="1000"
-        >
+      <div
+        className="contact-disktop-container"
+        data-aos="fade-up"
+        data-aos-once="true"
+        data-aos-delay="500"
+        data-aos-duration="1000"
+      >
+        <div className="disktop-social-container">
           <div className="main">
             <div className="up">
               <button

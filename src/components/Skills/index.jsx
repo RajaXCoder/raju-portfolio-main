@@ -11,8 +11,8 @@ const Skills = (props) => {
       className="w-[90%] flex flex-row flex-wrap mx-auto"
     >
       {/* Frontend Skills */}
-      <ul className="box-border w-full sm:w-[48%] sm:mx-[1%] lg:w-[31.33%] lg:mx-[1%] rounded-xl px-8 py-6 my-2 h-[15rem] bg-gray-800 border border-gray-700 shadow-lg shadow-cyan-900/10 hover:shadow-cyan-900/20 transition-all duration-300 hover:transform hover:scale-[1.02] relative group">
-        <div className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-cyan-500 to-cyan-400" />
+      <ul className="relative w-full sm:w-[48%] lg:w-[31.33%] h-[15rem] rounded-xl overflow-hidden flex flex-col p-6 group m-[1%] border border-gray-700 bg-gray-800 transition-colors duration-200 shadow-lg shadow-cyan-900/10 hover:shadow-cyan-900/20 hover:shadow-cyan-900/20 transition-all duration-300 hover:transform hover:scale-[1.02] relative group">
+        <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-cyan-500 to-cyan-400" />
         <li className="text-cyan-400 text-2xl mb-4 font-semibold flex items-center">
           <FaCode className="mr-3 text-cyan-400" /> Frontend
         </li>
@@ -31,8 +31,8 @@ const Skills = (props) => {
       </ul>
 
       {/* Database & Tools Skills */}
-      <ul className="box-border w-full sm:w-[48%] sm:mx-[1%] lg:w-[31.33%] lg:mx-[1%] rounded-xl px-8 py-6 my-2 h-[15rem] bg-gray-800 border border-gray-700 shadow-lg shadow-cyan-900/10 hover:shadow-cyan-900/20 transition-all duration-300 hover:transform hover:scale-[1.02] relative group">
-        <div className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-cyan-500 to-cyan-400" />
+      <ul className="relative w-full sm:w-[48%] lg:w-[31.33%] h-[15rem] rounded-xl overflow-hidden flex flex-col p-6 group m-[1%] border border-gray-700 bg-gray-800 transition-colors duration-200 shadow-lg shadow-cyan-900/10 hover:shadow-cyan-900/20 hover:shadow-cyan-900/20 transition-all duration-300 hover:transform hover:scale-[1.02] relative group">
+        <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-cyan-500 to-cyan-400" />
         <li className="text-cyan-400 text-2xl mb-4 font-semibold flex items-center">
           <FaDatabase className="mr-3 text-cyan-400" /> Databases & Tools
         </li>
@@ -51,8 +51,9 @@ const Skills = (props) => {
       </ul>
 
       {/* Backend Skills */}
-      <ul className="box-border w-full sm:w-[48%] sm:mx-[1%] lg:w-[31.33%] lg:mx-[1%] rounded-xl px-8 py-6 my-2 h-[15rem] bg-gray-800 border border-gray-700 shadow-lg shadow-cyan-900/10 hover:shadow-cyan-900/20 transition-all duration-300 hover:transform hover:scale-[1.02] relative group">
-        <div className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-cyan-500 to-cyan-400" />
+
+      <ul className="relative w-full sm:w-[48%] lg:w-[31.33%] h-[15rem] rounded-xl overflow-hidden flex flex-col p-6 group m-[1%] border border-gray-700 bg-gray-800 transition-colors duration-200 shadow-lg shadow-cyan-900/10 hover:shadow-cyan-900/20 hover:shadow-cyan-900/20 transition-all duration-300 hover:transform hover:scale-[1.02] relative group">
+        <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-cyan-500 to-cyan-400" />
         <li className="text-cyan-400 text-2xl mb-4 font-semibold flex items-center">
           <FaServer className="mr-3 text-cyan-400" /> Backend
         </li>

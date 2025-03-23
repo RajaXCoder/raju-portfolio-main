@@ -1,6 +1,6 @@
 /* From Uiverse.io by Smit-Prajapati */
 .contact-card {
-  width: 100%;
+  width: 90%;
   aspect-ratio: 4/4;
   background: white;
   border-radius: 32px;
@@ -11,6 +11,7 @@
   opacity: 0;
   animation: slow linear forwards;
   margin-bottom: 20px;
+  margin-inline: auto;
   /* animation-range: entry;
         animation-timeline: view(); */
   /* transition: 1000ms; */
@@ -204,7 +205,8 @@
 /* disktop -view contact */
 
 .contact-disktop-container {
-  width: 100%;
+  width: 90%;
+  margin-inline: auto;
   display: flex;
 }
 
