@@ -1,0 +1,107 @@
+/* From Uiverse.io by gharsh11032000 */
+.project-card-container {
+  width: 31.3%;
+  margin: 1%;
+  height: 300px;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  /* margin-right: 40px; */
+}
+
+@media (max-width: 992px) {
+  .project-card-container {
+    width: 48%;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-list-container {
+    flex-direction: column;
+  }
+
+  .project-card-container {
+    margin: 0 0 20px 0;
+    width: 100%;
+  }
+}
+
+.project-card {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.project-card .front-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.project-card .front-content p {
+  font-size: 32px;
+  font-weight: 700;
+  opacity: 1;
+  background: linear-gradient(-45deg, cyan 0%, #08a08c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (min-width: 800px) {
+  .project-card .front-content p {
+    font-size: 24px;
+    width: 70%;
+    text-align: center;
+  }
+}
+
+.project-card .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  /* text-align: center; */
+  gap: 10px;
+  background: linear-gradient(-45deg, #00eeff 0%, #3fffe5 100%);
+  color: #404040;
+  padding: 20px;
+  line-height: 1.5;
+  border-radius: 5px;
+  /* pointer-events: none; */
+  transform: translateX(-96%);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.project-card .content .heading {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.project-card:hover .content {
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .project-card .content .heading {
+    font-size: 24px;
+  }
+
+  .project-card .content p {
+    font-size: 14px;
+  }
+}
+
+.project-card:hover .front-content {
+  transform: translateX(-30%);
+}
