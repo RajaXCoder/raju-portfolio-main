@@ -30,6 +30,9 @@ const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
 };
 
+const URI = import.meta.env.VITE_API_URI;
+console.log(URI);
+
 const Home = () => {
   const [tabsList, setTabsList] = useState(navigation);
   const [projectList, setProjectList] = useState([]);
@@ -53,15 +56,9 @@ const Home = () => {
       try {
         setIsLoading(true);
         const [res1, res2, res3] = await Promise.all([
-          axios.get(
-            "https://raju-portfolio-server.onrender.com/api/get-projects"
-          ),
-          axios.get(
-            "https://raju-portfolio-server.onrender.com/api/get-skills"
-          ),
-          axios.get(
-            "https://raju-portfolio-server.onrender.com/api/get-certificates"
-          ),
+          axios.get(`${URI}/get-projects`),
+          axios.get(`${URI}/get-skills`),
+          axios.get(`${URI}/get-certificates`),
         ]);
         // console.log("res 3 ", res3);
         if (res1.status === 200 && res2.status === 200 && res3.status === 200) {
@@ -204,7 +201,7 @@ const Home = () => {
           Skills
         </h1>
 
-        {isLoading ? <Loader /> : <Skills skills={skills} />}
+        {isLoading ? <Loader /> : <Skills skills={skillsList} />}
 
         {/*Certificates View*/}
         <h1 className="home-heading">Certificates</h1>
