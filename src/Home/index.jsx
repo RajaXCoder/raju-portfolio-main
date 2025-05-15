@@ -30,8 +30,7 @@ const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
 };
 
-const URI = import.meta.env.VITE_API_URI;
-console.log(URI);
+const URI = "https://raju-portfolio-backend.onrender.com/api";
 
 const Home = () => {
   const [tabsList, setTabsList] = useState(navigation);
